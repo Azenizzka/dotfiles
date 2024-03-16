@@ -1,13 +1,11 @@
 # !/bin/bash
 
 function main() {
-    # enableMultilib
+    enableMultilib
 
-    # installUtils
+    installYay
 
-    # installYay
-
-    # makeAudio
+    makeAudio
 
     installDrivers
 
@@ -15,7 +13,7 @@ function main() {
 
     installTerminal
 
-    # installFonts
+    installFonts
 
     installConfigs
 }
@@ -23,10 +21,6 @@ function main() {
 function enableMultilib() {
     sudo cp etc/pacman.conf /etc
     sudo pacman -Suy
-}
-
-function installUtils() {
-    sudo pacman -S git
 }
 
 function installYay() {
@@ -56,7 +50,7 @@ function installTerminal() {
 }
 
 function installWM() {
-    sudo pacman -S hyprland hyprpaper waybar xdg-desktop-portal-hyprland grim slurp xorg-xwayland
+    sudo pacman -S hyprland hyprpaper waybar xdg-desktop-portal-hyprland xdg-desktop-portal-wlr xdg-desktop-portal grim slurp xorg-xwayland
 
     yay -S hyprpicker
 }
