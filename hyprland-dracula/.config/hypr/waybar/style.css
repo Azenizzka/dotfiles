@@ -1,0 +1,44 @@
+* {
+	font-family: JetBrainsMono-Bold, Symbols Nerd Font;
+	font-weight: normal;
+	font-size: 16px;
+
+	border-radius: 8px;
+	border: none;
+
+	padding: 0px 0px;
+	margin: 0px 5px;
+}
+
+window#waybar {
+	background-color: rgba(40, 42, 54, 0);
+	color: rgb(248, 248, 242);
+}
+
+#workspaces button {
+	color: rgb(248, 248, 242);
+	background-color: rgba(40, 42, 54, 255);
+}
+
+#workspaces button.active {
+	background-color: rgb(68, 71, 90);
+	color: rgb(189, 147, 249);
+}
+
+#cpu,
+#memory,
+#tray,
+#language,
+#battery,
+#backlight,
+#pulseaudio,
+#clock {
+	padding: 0 10px;
+	margin: 0 6px;
+	color: rgb(248, 248, 242);
+	background-color: rgba(40, 42, 54, 255);
+}
+
+#custom-sep {
+	color: rgba(0, 0, 0, 0.0);
+}

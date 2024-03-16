@@ -1,0 +1,92 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 32,
+	"margin-top": 8,
+	
+	"margin-left": -8,
+	"margin-right": -8,
+
+	
+    "modules-left": ["cpu", "memory", "custom/sep", "backlight", "pulseaudio"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["tray", "custom/sep","hyprland/language", "battery", "clock"],
+
+
+    "cpu": {
+		"format": "  {usage}%",
+		"tooltip": false
+    },
+
+	"custom/sep": {
+		"format": "_"
+	},
+
+
+	"memory": {
+		"format": "  {}%",
+		"tooltip": false
+	},
+
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"on-click": "activate",
+		"format-icons": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"5": "",
+			"6": "",
+			"7": "",
+			"8": "",
+			"9": ""
+			}
+	},
+
+
+	"hyprland/language": {
+	    "format": "{}",
+	    "format-en": "En",
+	    "format-ru": "Ru"
+	},
+
+
+	"tray": {
+		"icon-size": 24,
+		"spacing": 16
+	},
+
+
+	"clock": {
+		"interval": 1,
+		"format": "{:%H:%M}",
+		"max-length": 25
+	},
+
+    "pulseaudio": {
+		"scroll-step": 1,
+		"format": "{icon}  {volume}%",
+		"format-icons": {
+			"default": ["", "", ""]
+		}
+	},
+
+
+	"battery": {
+		"states": {
+				"warning": 30,
+				"critical": 15
+		},
+		"interval": 3,
+
+		"format": "{icon} {capacity}%",
+		"format-charging": "󰂄 {capacity}%",
+		"format-icons": ["", "", "", "", ""]
+	},
+
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "󰌵 {percent}%"
+	}
+}
