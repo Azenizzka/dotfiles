@@ -34,11 +34,11 @@ function installYay() {
 }
 
 function makeAudio() {
-    sudo pacman -S pipewire pipewire-pulse wireplumber
+    sudo pacman -S sof-firmware alsa-utils pulseaudio
 }
 
 function installFonts() {
-    sudo pacman -S ttf-jetbrains-mono-nerd noto-fonts-emoji
+    sudo pacman -S ttf-jetbrains-mono-nerd ttf-jetbrains-mono noto-fonts-emoji noto-fonts-extra
 }
 
 function installDrivers() {
@@ -50,20 +50,20 @@ function installTerminal() {
 }
 
 function installWM() {
-    sudo pacman -S hyprland hyprpaper waybar xdg-desktop-portal-hyprland xdg-desktop-portal-wlr xdg-desktop-portal grim slurp xorg-xwayland
+    sudo pacman -S hyprland hyprpaper waybar xdg-desktop-portal-hyprland xdg-desktop-portal-wlr xdg-desktop-portal xorg-xwayland mako grim wl-clipboard mako
 
     yay -S hyprpicker
 }
 
 function installConfigs() {
-    chsh -s /usr/bin/fish
+    sudo cp modprobe.d/alsa-base.conf /etc/modprobe.d/Z
 
     cp -r .fonts/ ~/
     cp -r .config/ ~/
 
+    chsh -s /usr/bin/fish
+
     fc-cache -fv
 }
-
-
 
 main
