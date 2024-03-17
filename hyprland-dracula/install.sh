@@ -10,6 +10,8 @@ function main() {
     installTerminal
     installWM
 
+    installApps
+
     installConfigs
 }
 
@@ -45,9 +47,21 @@ function installTerminal() {
 }
 
 function installWM() {
-    sudo pacman -S hyprland hyprpaper waybar xdg-desktop-portal-hyprland xdg-desktop-portal-wlr xdg-desktop-portal xorg-xwayland mako grim slurp wl-clipboard mako
+    sudo pacman -S hyprland hyprpaper waybar xdg-desktop-portal-hyprland xdg-desktop-portal-wlr xdg-desktop-portal xorg-xwayland mako grim slurp wl-clipboard
 
     yay -S hyprpicker
+}
+
+function installApps() {
+    installOmf
+
+    sudo pacman -S openssh firefox jre-openjdk discord telegram-desktop
+
+    yay -S visual-studio-code-bin intellij-idea-ultimate-edition postman-bin
+}
+
+function installOmf() {
+    curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 }
 
 function installConfigs() {
