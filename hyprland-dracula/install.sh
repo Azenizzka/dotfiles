@@ -59,7 +59,7 @@ function installWM() {
 
 function installApps() {
 
-    sudo pacman -S openssh firefox jre-openjdk discord telegram-desktop
+    sudo pacman -S openssh firefox jre-openjdk discord telegram-desktop btop neofetch
 
     yay -S visual-studio-code-bin intellij-idea-ultimate-edition postman-bin
 }
