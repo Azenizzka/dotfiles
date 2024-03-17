@@ -46,9 +46,8 @@ function installTerminal() {
     sudo pacman -S alacritty fish
     installFishPM
 
-    omf install https://github.com/dracula/fish
-    omf install bobthefish
-
+    fisher install dracula/fish
+    fisher install IlanCosman/tide@v6
     tide configure --auto --style=Classic --prompt_colors='16 colors' --show_time=No --classic_prompt_separators=Slanted --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat --powerline_prompt_style='One line' --prompt_spacing=Compact --icons='Many icons' --transient=No
 }
 
