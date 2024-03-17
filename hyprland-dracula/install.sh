@@ -44,6 +44,12 @@ function installFonts() {
 
 function installTerminal() {
     sudo pacman -S alacritty fish
+    installFishPM
+
+    omf install https://github.com/dracula/fish
+    omf install bobthefish
+
+    tide configure --auto --style=Classic --prompt_colors='16 colors' --show_time=No --classic_prompt_separators=Slanted --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat --powerline_prompt_style='One line' --prompt_spacing=Compact --icons='Many icons' --transient=No
 }
 
 function installWM() {
@@ -53,15 +59,15 @@ function installWM() {
 }
 
 function installApps() {
-    installOmf
 
     sudo pacman -S openssh firefox jre-openjdk discord telegram-desktop
 
     yay -S visual-studio-code-bin intellij-idea-ultimate-edition postman-bin
 }
 
-function installOmf() {
+function installFishPM() {
     curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 }
 
 function installConfigs() {
