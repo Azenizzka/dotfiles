@@ -43,12 +43,12 @@ function installFonts() {
 }
 
 function installTerminal() {
-    sudo pacman -S alacritty fish
-    installFishPM
+    sudo pacman -S alacritty fish fisher
 
-    fisher install dracula/fish
-    fisher install IlanCosman/tide@v6
-    tide configure --auto --style=Classic --prompt_colors='16 colors' --show_time=No --classic_prompt_separators=Slanted --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat --powerline_prompt_style='One line' --prompt_spacing=Compact --icons='Many icons' --transient=No
+    fish -c "fisher install dracula/fish"
+    fish -c "fisher install IlanCosman/tide@v6"
+
+    fish -c "tide configure --auto --style=Classic --prompt_colors='16 colors' --show_time=No --classic_prompt_separators=Slanted --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat --powerline_prompt_style='One line' --prompt_spacing=Compact --icons='Many icons' --transient=No"
 }
 
 function installWM() {
@@ -64,12 +64,8 @@ function installApps() {
     yay -S visual-studio-code-bin intellij-idea-ultimate-edition postman-bin
 }
 
-function installFishPM() {
-    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-}
-
 function installConfigs() {
-    sudo cp modprobe.d/alsa-base.conf /etc/modprobe.d/Z
+    sudo cp modprobe.d/alsa-base.conf /etc/modprobe.d/
 
     cp -r .fonts/ ~/
     cp -r .config/ ~/
