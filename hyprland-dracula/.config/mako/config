@@ -1,0 +1,17 @@
+max-history=10
+
+font=JetBrainsMono Medium 11
+
+background-color=#282a36bb
+text-color=#f8f8f2ff
+
+border-color=#bd93f9ff
+border-size=2
+border-radius=4
+
+width=350
+height=100
+
+max-visible=4
+
+format=<b>%a ⏵ %s</b>\n%b

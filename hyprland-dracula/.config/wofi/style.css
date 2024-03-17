@@ -1,0 +1,29 @@
+* {
+    border-radius: 4px;
+    border: none;
+}
+
+window {
+    font-size: 16px;
+    font-family: "JetBrainsMono";
+    font-weight: bold;
+    background-color: rgba(68, 71, 90, 0.75);
+    color: rgba(248, 248, 242, 0.75);
+}
+
+#entry:selected {
+    background-color: rgba(189, 147, 249, 0.5);
+    color: rgba(248, 248, 242, 0.75);
+    border-radius: 0;
+}
+
+#input {
+    background-color: rgba(40, 42, 54, 0.75);
+    color: rgba(248, 248, 242, 0.75);
+    border-radius: 0;
+}
+
+image {
+    margin-left: .5em;
+    margin-right: .5em;
+}
