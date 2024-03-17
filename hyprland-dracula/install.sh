@@ -2,18 +2,13 @@
 
 function main() {
     enableMultilib
-
     installYay
-
     makeAudio
-
     installDrivers
-
-    installWM
+    installFonts
 
     installTerminal
-
-    installFonts
+    installWM
 
     installConfigs
 }
@@ -37,12 +32,12 @@ function makeAudio() {
     sudo pacman -S sof-firmware alsa-utils pulseaudio
 }
 
-function installFonts() {
-    sudo pacman -S ttf-jetbrains-mono-nerd ttf-jetbrains-mono noto-fonts-emoji noto-fonts-extra
-}
-
 function installDrivers() {
     sudo pacman -S mesa vulkan-intel
+}
+
+function installFonts() {
+    sudo pacman -S noto-fonts-emoji noto-fonts-extra
 }
 
 function installTerminal() {
@@ -50,7 +45,7 @@ function installTerminal() {
 }
 
 function installWM() {
-    sudo pacman -S hyprland hyprpaper waybar xdg-desktop-portal-hyprland xdg-desktop-portal-wlr xdg-desktop-portal xorg-xwayland mako grim wl-clipboard mako
+    sudo pacman -S hyprland hyprpaper waybar xdg-desktop-portal-hyprland xdg-desktop-portal-wlr xdg-desktop-portal xorg-xwayland mako grim slurp wl-clipboard mako
 
     yay -S hyprpicker
 }
