@@ -58,17 +58,20 @@ function installWM() {
 }
 
 function installApps() {
-
-    sudo pacman -S openssh firefox jre-openjdk discord telegram-desktop btop neofetch
+    sudo pacman -S openssh firefox jre17-openjdk discord telegram-desktop btop neofetch filezilla unzip zip libreoffice-fresh docker docker-compose man nano lxappearance
 
     yay -S visual-studio-code-bin intellij-idea-ultimate-edition postman-bin
 }
 
 function installConfigs() {
     sudo cp modprobe.d/alsa-base.conf /etc/modprobe.d/
+    
+    sudo systemctl enable docker docker.socket
+    sudo systemctl start docker docker.socket
 
     cp -r .fonts/ ~/
     cp -r .config/ ~/
+    cp -r .themes/ ~/
 
     chsh -s /usr/bin/fish
 
