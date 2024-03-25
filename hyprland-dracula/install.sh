@@ -76,6 +76,8 @@ function installConfigs() {
     chsh -s /usr/bin/fish
 
     fc-cache -fv
+
+    bash ../scripts/clear.sh
 }
 
 main
