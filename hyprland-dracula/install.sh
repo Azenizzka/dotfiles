@@ -60,7 +60,7 @@ function installWM() {
 function installApps() {
     sudo pacman -S openssh firefox jre17-openjdk telegram-desktop btop neofetch filezilla unzip zip libreoffice-fresh docker docker-compose man nano
 
-    yay -S visual-studio-code-bin intellij-idea-ultimate-edition postman-bin
+    yay -S visual-studio-code-bin intellij-idea-ultimate-edition postman-bin webcord
 }
 
 function installConfigs() {
