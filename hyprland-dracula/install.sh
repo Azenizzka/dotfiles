@@ -52,7 +52,7 @@ function installTerminal() {
 }
 
 function installWM() {
-    sudo pacman -S hyprland hyprpaper waybar xdg-desktop-portal-hyprland xdg-desktop-portal-wlr xdg-desktop-portal xorg-xwayland mako grim slurp wl-clipboard wofi
+    sudo pacman -S hyprland hyprpaper waybar xdg-desktop-portal-hyprland xdg-desktop-portal-wlr xdg-desktop-portal xorg-xwayland mako grim slurp wl-clipboard wofi brightnessctl hypridle hyprlock
 
     yay -S hyprpicker
 }
