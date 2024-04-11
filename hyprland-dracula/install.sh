@@ -13,6 +13,22 @@ function main() {
     installApps
 
     installConfigs
+
+    enableAutoRun
+}
+
+function enableAutoRun() {
+    echo "Enter the username that will be used for autorun your system. To disable this feature, leave the input blank."
+    read username
+
+    if [ "$username" != "" ]; then
+        
+        cp -r autorun/.config/* ~/.config
+        sudo cp autorun/getty@tty1.service /etc/systemd/system/getty.target.wants/
+        
+        sudo sed -i "s/username_pointer/$username/g" /etc/systemd/system/getty.target.wants/getty@tty1.service
+
+    fi
 }
 
 function enableMultilib() {
