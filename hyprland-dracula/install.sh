@@ -10,11 +10,11 @@ function main() {
     installTerminal
     installWM
 
-    installApps
+   installApps
 
     installConfigs
 
-    enableAutoRun
+   enableAutoRun
 }
 
 function enableAutoRun() {
@@ -22,12 +22,25 @@ function enableAutoRun() {
     read username
 
     if [ "$username" != "" ]; then
-        
-        cp -r autorun/.config/* ~/.config
-        sudo cp autorun/getty@tty1.service /etc/systemd/system/getty.target.wants/
-        
-        sudo sed -i "s/username_pointer/$username/g" /etc/systemd/system/getty.target.wants/getty@tty1.service
+        sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
+        sudo touch /etc/systemd/system/getty@tty1.service.d/autologin.conf
 
+        echo "[Service]" | sudo tee -a /etc/systemd/system/getty@tty1.service.d/autologin.conf
+        echo "ExecStart=" | sudo tee -a /etc/systemd/system/getty@tty1.service.d/autologin.conf
+        echo "ExecStart=-/usr/bin/agetty --autologin <username> --noclear %I 38400 linux" | sudo tee -a /etc/systemd/system/getty@tty1.service.d/autologin.conf
+
+        read -p "Введите имя пользователя: " username
+        sudo sed -i "s/<username>/$username/g" /etc/systemd/system/getty@tty1.service.d/autologin.conf
+
+        cp -r autorun/.config/* ~/.config
+
+        sudo systemctl daemon-reload
+
+        sudo systemctl enable getty@tty1
+
+        echo "Install complete. Reboot in 5 seconds.."
+        sleep 5
+        reboot
     fi
 }
 
