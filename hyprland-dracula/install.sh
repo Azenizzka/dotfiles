@@ -1,16 +1,20 @@
 # !/bin/bash
 
 function main() {
-    enableMultilib
-    installYay
-    makeAudio
-    installDrivers
-    installFonts
+   enableMultilib
+
+   optimize
+
+
+   installYay
+   makeAudio
+   installDrivers
+   installFonts
     
-    installTerminal
-    installWM
-    
-    installApps
+   installTerminal
+   installWM
+   
+   installApps
     
     installConfigs
     
@@ -76,15 +80,15 @@ function installTerminal() {
 }
 
 function installWM() {
-    sudo pacman -S hyprland hyprpaper waybar xdg-desktop-portal-hyprland xdg-desktop-portal-wlr xdg-desktop-portal xorg-xwayland mako grim slurp wl-clipboard wofi brightnessctl hypridle hyprlock
+    sudo pacman -S hyprland hyprpaper waybar xdg-desktop-portal-hyprland xdg-desktop-portal-wlr xdg-desktop-portal mako grim slurp wl-clipboard wofi brightnessctl hypridle hyprlock
     
     yay -S hyprpicker
 }
 
 function installApps() {
-    sudo pacman -S openssh firefox jre17-openjdk telegram-desktop btop neofetch filezilla unzip zip libreoffice-fresh docker docker-compose man nano valgrind tree
+    sudo pacman -S openssh firefox telegram-desktop btop neofetch filezilla unzip zip docker docker-compose man nano valgrind tree obs-studio
     
-    yay -S visual-studio-code-bin intellij-idea-ultimate-edition postman-bin webcord
+    yay -S visual-studio-code-bin postman-bin webcord
 }
 
 function installConfigs() {
@@ -93,6 +97,9 @@ function installConfigs() {
     sudo cp -r ../dracula/ /boot/grub/themes
     sudo cp grub /etc/default/
     sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
     
     sudo systemctl enable docker docker.socket
     sudo systemctl start docker docker.socket
@@ -105,7 +112,9 @@ function installConfigs() {
     
     fc-cache -fv
     
-    bash ../scripts/clear.sh
+    sudo cp ../scripts/care.sh /usr/bin/care
+
+    bash ../scripts/care.sh
 }
 
 main
