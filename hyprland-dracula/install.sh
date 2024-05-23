@@ -2,10 +2,7 @@
 
 function main() {
    enableMultilib
-
-   optimize
-
-
+   
    installYay
    makeAudio
    installDrivers
