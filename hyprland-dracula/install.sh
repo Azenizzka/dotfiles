@@ -86,7 +86,7 @@ function installWM() {
 }
 
 function installApps() {
-    sudo pacman -S openssh firefox telegram-desktop btop neofetch filezilla unzip zip docker docker-compose man nano valgrind tree obs-studio
+    sudo pacman -S openssh firefox telegram-desktop btop neofetch filezilla unzip zip docker docker-compose man nano valgrind tree obs-studio tldr
     
     yay -S visual-studio-code-bin postman-bin webcord
 }
