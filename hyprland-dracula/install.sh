@@ -1,21 +1,20 @@
 # !/bin/bash
 
 function main() {
-   enableMultilib
+    enableMultilib
    
-   installYay
-   makeAudio
-   installDrivers
-   installFonts
-    
-   installTerminal
-   installWM
-   
-   installApps
+    installYay
+    makeAudio
+    installDrivers
+    installFonts
+
+    installTerminal
+    installWM
+
+    installApps
     
     installConfigs
     
-    enableAutoRun
 }
 
 function enableAutoRun() {
@@ -91,7 +90,7 @@ function installApps() {
 function installConfigs() {
     sudo cp modprobe.d/alsa-base.conf /etc/modprobe.d/
     
-    sudo cp -r ../dracula/ /boot/grub/themes
+    sudo cp -r ../grub-dracula/ /boot/grub/themes/dracula
     sudo cp grub /etc/default/
     sudo grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -104,6 +103,9 @@ function installConfigs() {
     cp -r .fonts/ ~/
     cp -r .config/ ~/
     cp -r .themes/ ~/
+
+    gsettings set org.gnome.desktop.interface gtk-theme gtk-dracula
+    gsettings set org.gnome.desktop.interface icon-theme dracula-icons 
     
     chsh -s /usr/bin/fish
     
